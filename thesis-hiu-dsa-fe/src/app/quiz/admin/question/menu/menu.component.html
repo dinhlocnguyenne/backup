@@ -1,0 +1,12 @@
+<app-nav-bar></app-nav-bar>
+<div class="header-text">
+    <p class="bold-text">Chọn câu hỏi theo chương</p>
+  </div>
+<div class="product-grid">
+    <mat-card *ngFor="let item of rootContent" class="product-card" >
+        <button class="content" [routerLink]="'/quiz/question/contentIndex/' + item.id">
+            <h2 class="product-name">{{ item.title }}</h2>
+        </button>
+    </mat-card>
+  </div>
+  

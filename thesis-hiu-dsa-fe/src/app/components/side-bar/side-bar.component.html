@@ -1,0 +1,60 @@
+<div class="bg-dark h-100 text-light container">
+  <h2 class="pt-5">Graduate Thesis</h2>
+  <p>Nguyen Duy Anh</p>
+  <p>201101026</p>
+
+  <mat-list role="list" class="w-100">
+    <mat-list-item
+      (click)="this.changePage(1)"
+      [routerLink]="['/voicebot']"
+      role="listitem"
+      ><button
+        [ngClass]="{ 'text-warning': this.side == 1 }"
+        class="w-100"
+        mat-flat-button
+        color="primary"
+      >
+        <mat-icon> person_pin</mat-icon> Voice Bot
+      </button></mat-list-item
+    >
+    <mat-list-item
+      (click)="this.changePage(2)"
+      [routerLink]="['/chatbot']"
+      role="listitem"
+      ><button
+        [ngClass]="{ 'text-warning': this.side == 2 }"
+        class="w-100"
+        mat-flat-button
+        color="primary"
+      >
+        <mat-icon> message</mat-icon> Chat Bot
+      </button></mat-list-item
+    >
+    <mat-list-item
+      (click)="this.changePage(3)"
+      [routerLink]="['/stt']"
+      role="listitem"
+      ><button
+        [ngClass]="{ 'text-warning': this.side == 3 }"
+        class="w-100"
+        mat-flat-button
+        color="primary"
+      >
+        <mat-icon>audiotrack</mat-icon> Transcriber
+      </button></mat-list-item
+    >
+    <mat-list-item
+      (click)="this.changePage(4)"
+      [routerLink]="['/tts']"
+      role="listitem"
+      ><button
+        [ngClass]="{ 'text-warning': this.side == 4 }"
+        class="w-100"
+        mat-flat-button
+        color="primary"
+      >
+        <mat-icon>speaker_notes</mat-icon> Speaker
+      </button></mat-list-item
+    >
+  </mat-list>
+</div>

@@ -1,0 +1,38 @@
+<div class="row">
+ <div class="sidenav" [ngClass]="collapsed ? 'sidenav-collapsed': ''">
+  <div class="logo-container">
+      <button class="logo" (click)="toggleCollapse()">H</button>
+      <div class="logo-text" @fadeInOut *ngIf="collapsed">HIU</div>
+      <button class="btn-close" @rotate *ngIf="collapsed" (click)="closeSidenav()">
+          <i class="fal fa-times close-icon"></i>
+      </button>
+  </div>
+  <div class="scrollwrap scrollwrap_delayed">
+    <ul class="sidenav-nav">
+      <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="example-tree">
+
+          <mat-tree-node *matTreeNodeDef="let node"matTreeNodeToggle (click)="getContentByContentIndexId(node.id)">
+                <div class="node-container">
+                    <mat-icon>bookmark_border</mat-icon>
+                    <span class="node-title">{{node.title}}</span>
+                </div>
+          </mat-tree-node>
+          <mat-nested-tree-node *matTreeNodeDef="let node  ; when: hasChild" >
+              <div  class="mat-tree-node" >
+                  <button mat-icon-button matTreeNodeToggle [attr.aria-label]="'Toggle ' + node.title">
+                      <mat-icon class="mat-icon-rtl-mirror">
+                          {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+                      </mat-icon>
+                  </button>
+                  <div class="node-title" (click)="getContentByContentIndexId(node.id)">{{node.title}}</div>
+              </div>
+              <div [class.example-tree-invisible]="!treeControl.isExpanded(node)" role="group">
+                  <ng-container matTreeNodeOutlet></ng-container>
+              </div>
+          </mat-nested-tree-node>
+      </mat-tree>
+    </ul>
+  </div>
+
+</div>
+</div>

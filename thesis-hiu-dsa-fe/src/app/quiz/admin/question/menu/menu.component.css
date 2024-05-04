@@ -1,0 +1,44 @@
+.search-form {
+    text-align: center;
+    margin: 16px;
+  }
+  
+  .product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .product-card {
+    max-width: 1000px;
+    width: calc(100% - 32px); /* Đảm bảo mỗi ô chiếm toàn bộ chiều rộng của container */
+    margin-bottom: 16px;
+    margin: 16px auto;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    height: 100%; /* Set a fixed height for consistent card height */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a box shadow for a raised effect */
+  }
+  .content {
+    display: flex;
+    align-items: center; /* Căn giữa nội dung theo chiều dọc */
+    height: 100%;
+  }
+  .product-name {
+    margin: 0; /* Xóa margin mặc định của thẻ h2 */
+  }
+  .button-container button {
+    margin-right: 12px;
+  }
+  .header-text {
+    text-align: center; /* Căn giữa đoạn văn bản */
+    margin-bottom: 50px; /* Khoảng cách với các mat-card */
+    margin-top: 50px;
+  }
+  
+  .bold-text {
+    font-weight: bold; /* Làm đậm văn bản */
+    font-size: 24px; /* Tăng kích thước văn bản */
+  }

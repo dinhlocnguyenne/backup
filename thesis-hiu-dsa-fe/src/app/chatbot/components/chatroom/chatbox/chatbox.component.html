@@ -1,0 +1,41 @@
+<div style="border-radius: 10px;" class="chat-header p-2 d-flex container mt-1">
+    <img class="my-icon" src="assets/robot.png"/>
+    <div class="px-2 w-100">
+        <h2 style="margin: 0;" class="text-light">Chatbot Lili</h2>
+        <div style="padding-top: 0;" class="d-flex">
+            <div class="p-1 mx-2 active-icon"></div>
+            <p style="margin: 0;">Activte 24/7</p>
+        </div>
+    </div>
+</div>
+<div style="height: 98%;" class="w-100 container">
+    <div *ngIf="this.messages.length != 0" #scroll [scrollTop]="scroll.scrollHeight" style="height: 70%;" class="overflow-auto my-scroll">
+        <div *ngFor="let item of this.messages; let index = index">
+            <div class="d-flex flex-row-reverse mt-2">
+                <app-message [message]="item"></app-message>
+            </div>
+            <div class="mt-2 d-flex w-75">
+                <img class="my-img" src="assets/robot.png"/>
+                <app-response *ngIf="index+1 <= this.responses.length" [response]="this.responses[index]"></app-response>
+                <div *ngIf="index+1 > this.responses.length" class="col-3 mx-4">
+                    <div class="snippet" data-title="dot-falling">
+                      <div class="stage">
+                        <div class="dot-falling"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <div class="text-center pt-5" style="height: 70%;" *ngIf="this.messages.length == 0">
+        <img class="border p-2" style="height: 200px; border-radius: 50%;" src="assets/robot.png"/>
+        <p style="font-size: 22px;" class="mt-2">Hello, Text something and I will answer for you :)))</p>
+    </div>
+    
+    <div class="input-group mt-3">
+        <input (keyup)="getInput($event)" (keyup.enter)="handleEnter()" type="text" value="{{this.message}}" class="form-control" placeholder="Enter..." aria-label="Username" aria-describedby="basic-addon1">
+        <button (click)="handleEnter()" *ngIf="this.typing" mat-raised-button color="primary">Send</button>
+        <button (click)="resetMessages()" *ngIf="!this.typing" mat-stroked-button color="primary">Reset</button>
+    </div>
+</div>

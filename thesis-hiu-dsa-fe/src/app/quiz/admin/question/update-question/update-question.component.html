@@ -1,0 +1,205 @@
+
+<div class="container">
+    <mat-card>
+      <mat-card-title>Update Product</mat-card-title>
+      <mat-card-content>
+        <form [formGroup]="questionForm" (ngSubmit)="updateProduct()">
+          <div class="file-upload-container">
+            <label class="file-upload-label"
+              ><a mat-raised-button color="secondary">
+                Select a file <mat-icon>attach_file</mat-icon>
+              </a>
+              <input
+                type="file"
+                id="fileInput"
+                (change)="onFileSelectd($event)"
+                hidden
+              />
+            </label>
+  
+            <div *ngIf="!selectedFile" class="product-image-container">
+              <img
+                mat-card-image
+                style="width: 150px"
+                [src]="oldImgae"
+                alt="img"
+              />
+            </div>
+  
+            <div *ngIf="selectedFile" class="image-preview">
+              <div class="circle-image">
+                <img
+                  style="width: 150px"
+                  [src]="imagePreview"
+                  alt="selected image"
+                  class="preview-image"
+                />
+              </div>
+            </div>
+          </div>
+  
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Chọn chương</mat-label>
+            <mat-select formControlName="contentIndexId" name="contentIndexId">
+              <mat-option
+                *ngFor="let contentIndex of rootContent"
+                [value]="contentIndex.id"
+              >
+                {{ contentIndex.title }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="questionForm.get('contentIndexId').hasError('required')">
+              This input is required
+            </mat-error>
+          </mat-form-field>
+  
+
+          
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Câu hỏi</mat-label>
+            <input
+              matInput
+              type="text"
+              name="question"
+              formControlName="question"
+              placeholder="question"
+              required
+            />
+            <mat-error *ngIf="questionForm.get('question').hasError('required')">
+              This input is required
+            </mat-error>
+          </mat-form-field>
+  
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Lựa chọn 1</mat-label>
+            <input
+              matInput
+              type="text"
+              name="answerA"
+              formControlName="answerA"
+              placeholder="answerA"
+              required
+            />
+            <mat-error *ngIf="questionForm.get('answerA').hasError('required')">
+              This input is required
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Lựa chọn 2</mat-label>
+            <input
+              matInput
+              type="text"
+              name="answerB"
+              formControlName="answerB"
+              placeholder="answerB"
+              required
+            />
+            <mat-error *ngIf="questionForm.get('answerB').hasError('required')">
+              This input is required
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Lựa chọn 3</mat-label>
+            <input
+              matInput
+              type="text"
+              name="answerC"
+              formControlName="answerC"
+              placeholder="answerC"
+              required
+            />
+            <mat-error *ngIf="questionForm.get('answerC').hasError('required')">
+              This input is required
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Lựa chọn 4</mat-label>
+            <input
+              matInput
+              type="text"
+              name="answerD"
+              formControlName="answerD"
+              placeholder="answerD"
+              required
+            />
+            <mat-error *ngIf="questionForm.get('answerD').hasError('required')">
+              This input is required
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Đáp án đúng</mat-label>
+            <input
+              matInput
+              type="text"
+              name="correctAnswer"
+              formControlName="correctAnswer"
+              placeholder="correctAnswer"
+              required
+            />
+            <mat-error *ngIf="questionForm.get('correctAnswer').hasError('required')">
+              This input is required
+            </mat-error>
+          </mat-form-field>
+  
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Độ khó câu hỏi</mat-label>
+            <input
+            matInput
+            type="text"
+            name="DI"
+            formControlName="DI"
+            placeholder="DI"
+            required
+            pattern="^\d+(\.\d+)?$"
+            title="Hãy nhập dạng số thực"
+            />
+            <mat-error *ngIf="questionForm.get('DI').hasError('required')">
+              This input is required
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Độ co giãn câu hỏi</mat-label>
+            <input
+                matInput
+                type="text"
+                name="DF"
+                formControlName="DF"
+                placeholder="DF"
+                required
+                pattern="^\d+(\.\d+)?$"
+                title="Hãy nhập dạng số thực"
+            />
+            <mat-error *ngIf="questionForm.get('DF').hasError('required')">
+              This input is required
+            </mat-error>
+          </mat-form-field>
+
+          
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>bloomTaxonomy</mat-label>
+            <input
+              matInput
+              type="text"
+              name="bloomTaxonomy"
+              formControlName="bloomTaxonomy"
+              placeholder="bloomTaxonomy"
+              required
+            />
+            <mat-error *ngIf="questionForm.get('bloomTaxonomy').hasError('required')">
+              This input is required
+            </mat-error>
+          </mat-form-field>
+  
+          <button mat-raised-button color="primary" type="submit">
+            Cập nhật câu hỏi
+          </button>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  

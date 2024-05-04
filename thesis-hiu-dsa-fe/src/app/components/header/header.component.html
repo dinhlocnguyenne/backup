@@ -1,0 +1,73 @@
+<div class="my-header" >
+  <div class="d-flex justify-content-between container p-3">
+    <div class="d-flex">
+      <h1 class="mx-3">
+        <strong><i>Thesis HIU Dsa</i></strong>
+      </h1>
+    </div>
+    <ul class="nav w-75 d-flex justify-content-between">
+      <li class="nav-item">
+        <a class="nav-link active" href="#">Home</a>
+      </li>
+      <li
+        (mouseenter)="this.hover(true)"
+        (mouseleave)="this.hover(false)"
+        class="nav-item"
+      >
+        <a class="nav-link" [routerLink]="['/assistance']">Assistance</a>
+      </li>
+      <li
+        (mouseenter)="this.hover(true)"
+        (mouseleave)="this.hover(false)"
+        class="nav-item"
+      >
+      <a class="nav-link" [routerLink]="['quiz/admin-home']">QUIZ</a>
+        <!-- <div
+          *ngIf="this.seeProducts"
+          style="position: absolute; width: 10%"
+          class="list-group mx-3"
+        >
+          <a
+            [routerLink]="['/voicebot']"
+            class="list-group-item list-group-item-action"
+            >Voicebot</a
+          >
+          <a
+            [routerLink]="['/chatbot']"
+            class="list-group-item list-group-item-action"
+            >Chatbot</a
+          >
+          <a
+            [routerLink]="['/stt']"
+            class="list-group-item list-group-item-action"
+            >Transciber</a
+          >
+          <a
+            [routerLink]="['/tts']"
+            class="list-group-item list-group-item-action"
+            >Speaker</a
+          >
+        </div> -->
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['']">Search</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['books']">Books</a>
+      </li>
+      <div *ngIf="!isCustomerLoggedIn && !isAdminLoggedIn" >
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['login']">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['signup']">Sign Up</a>
+        </li>
+      </div>
+      <div *ngIf="isCustomerLoggedIn || isAdminLoggedIn">
+        <li class="nav-item">
+          <a class="nav-link" (click)="logout()">Log Out</a>
+        </li>
+      </div>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,7 @@
+.my-message{
+    background-color: rgb(42, 121, 247);
+    width: fit-content;
+    border-radius: 25px;
+    color: white;
+    padding-top: 10px;
+}
